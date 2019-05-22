@@ -1,0 +1,11 @@
+# Get the mailboxes databases
+Get-MailboxDatabase
+
+ # Get info for the user
+ get-mailbox -Identity harrypotter@contoso.com
+ 
+ # Migrate the mailbox of harrypotter@contoso.com to the mailbox MAILBOX-DATABASE
+ get-mailbox -Identity harrypotter@contoso.com | New-MoveRequest -TargetDatabase MAILBOX-DATABASE
+ 
+ # Check the status of the database
+ Get-MoveRequestStatistics -MoveRequestQueue MAILBOX-DATABASE
