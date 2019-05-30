@@ -9,3 +9,9 @@ Get-MailboxDatabase
  
  # Check the status of the database
  Get-MoveRequestStatistics -MoveRequestQueue MAILBOX-DATABASE
+
+# How to check if there are mailboxes in Quarantine 
+Get-Mailbox | Get-MailboxStatistics | Where {$_.IsQuarantined -eq $True} | Select DisplayName,IsQuarantined,QuarantineEnd
+
+#Disable quarantine
+Disable-MailboxQuarantine "Harry Potter"

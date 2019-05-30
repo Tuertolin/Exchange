@@ -13,3 +13,13 @@ Get-MoveRequestStatistics -MoveRequestQueue EXCH-MED-MBX
 
 #Dismount database
 Dismount-Database -Identity EXCH-SML-MBX
+
+#Remove it
+Remove-MailboxDatabase -Identity EXCH-SML-MBX
+
+
+#Get mailbox database ID
+Get-MailboxDatabase | fl Identity, Guid
+
+#Move Arbitration mailboxes
+Get-Mailbox -Arbitration -Database EXCH-SML-MBX | New-MoveRequest -TargetDatabase EXCH-LGE-MBX
