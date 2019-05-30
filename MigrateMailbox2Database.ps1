@@ -18,3 +18,6 @@ Get-Mailbox | Get-MailboxStatistics | Where {$_.IsQuarantined -eq $True} | Selec
 
 #Disable quarantine
 Disable-MailboxQuarantine "Harry Potter"
+
+# More info about Exchange Quarantine 
+https://blogs.technet.microsoft.com/rmilne/2014/01/13/how-to-set-mailbox-quarantine-in-exchange/
